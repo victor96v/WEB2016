@@ -1,0 +1,104 @@
+/* Slide Styles */
+div.links{text-align:center;
+	font-family:Lobster;
+color:green;}
+div.links a{display:inline-block;padding:10px}
+
+code{
+	overflow:auto;
+	white-space:nowrap;
+	display:inline-block;
+	vertical-align:middle;
+}
+code.block{
+	padding:5px;
+	display:block;
+}
+/*div.container{
+	max-width:600px;
+	width:auto !important;
+	width:600px;
+}*/
+div#slide{
+	width:60em;
+height: 35em;
+	margin:0 auto;
+	margin-top: 0.8em;
+	overflow:hidden;
+	padding:0 0 60px;
+	position:relative;
+	border:2px solid #174c17;
+
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+}
+div#slide img{
+	width:100%;
+	height:auto;
+	display:block;
+}
+
+/* Arrows */
+div#slide a.arrow,
+div#slide a.arrow:hover{
+	bottom: 0;
+	z-index: 3;
+	color: #ccc;
+	padding: 0 10px;
+	height: 1.7em;
+	display: block;
+	font-size: 2em;
+	line-height: 60px;
+	position: absolute;
+	text-decoration: none;
+	margin-top: 1em;
+}
+div#slide a.arrow:hover{color:#666}
+div#slide a.arrow.prev{left:0}
+div#slide a.arrow.next{right:0}
+
+
+/* Bullets */
+div#slide div.slide-bullets{
+	left:0;
+	bottom:0;
+	z-index:1;
+	width:100%;
+	height: 3em;
+	position:absolute;
+	text-align:center;
+	border-top:1px solid #ccc;
+
+
+	background:#ffffff;
+	background:-moz-linear-gradient(top,  #ffffff 0%, #e7e7e7 100%);
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e7e7e7));
+	background:-webkit-linear-gradient(top,  #ffffff 0%,#e7e7e7 100%);
+	background:-o-linear-gradient(top,  #ffffff 0%,#e7e7e7 100%);
+	background:-ms-linear-gradient(top,  #ffffff 0%,#e7e7e7 100%);
+	background:linear-gradient(to bottom,  #ffffff 0%,#e7e7e7 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e7e7e7',GradientType=0 );
+}
+div.links{
+	background-color:#f2f2f2;
+}
+div#slide div.slide-bullets a{
+	width:15px;
+	height:15px;
+	background:#ccc;
+	margin:1em 1em 0;
+	vertical-align:top;
+	display:inline-block;
+
+	-webkit-border-radius:15px;
+	-moz-border-radius:15px;
+	border-radius:15px;
+
+	-webkit-transition: background-color 300ms ease-out;
+	-moz-transition: background-color 300ms ease-out;
+	-o-transition: background-color 300ms ease-out;
+	transition: background-color 300ms ease-out;
+}
+div#slide div.slide-bullets a.active,
+div#slide div.slide-bullets a:hover{background:#666}

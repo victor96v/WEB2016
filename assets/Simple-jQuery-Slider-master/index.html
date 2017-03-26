@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Simple jQuery Slide</title>
+
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/example-styles.css" media="all">
+</head>
+<body>
+<div class="container">
+
+
+<h1>Simple jQuery Slider</h1>
+<p><a href="https://github.com/loganstellway/Simple-jQuery-Slider">View / Download on GitHub</a></p>
+<div id="slide">
+	<img src="assets/images/2.jpg" alt="" />
+	<img src="assets/images/3.jpg" alt="" />
+	<img src="assets/images/4.jpg" alt="" />
+	<img src="assets/images/1.jpg" alt="" />
+</div>
+<div class="links">
+	<a href="#slide-0">Slide 1</a>
+	<a href="#slide-1">Slide 2</a>
+	<a href="#slide-2">Slide 3</a>
+	<a href="#slide-3">Slide 4</a>
+</div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="assets/js/simple-jquery-slider.min.js"></script>
+<script type="text/javascript">
+(function(simpleSlide) {
+	simpleSlide(window.jQuery, window, document);
+}(function($, window, document) {
+	$(function() {
+		window.slider = $('#slide');
+		window.slider.simpleSlide({
+			'auto':true,
+			'bullets':true,
+			'slideSelector':'img',
+			'onInitiate':function(){
+				window.slider.find('a.arrow.prev').addClass('fa fa-hand-o-left');
+				window.slider.find('a.arrow.next').addClass('fa fa-hand-o-right');
+			}
+		});
+	});
+}));
+</script>
+
+<p>&nbsp;</p>
+<h2 id="Features">Features <a href="#Features" class="fa fa-link"></a></h2>
+<ul>
+	<li>Navigation options: arrows &amp; bullet anchors</li>
+	<li>Full responsive.
+		<ul><li>Simple jQuery Slider assumes no styling, giving you complete control.</li></ul>
+	</li>
+	<li>Autoplay</li>
+	<li>Can listen to hashchange and link to specific slides</li>
+	<li>Slides may contain ANY content.</li>
+	<li><a href="#Callbacks">Callback API</a></li>
+	<li>Supported across all major browsers.</li>
+</ul>
+
+
+
+<p>&nbsp;</p>
+<h2 id="Docs">Documentation <a href="#Docs" class="fa fa-link"></a></h2>
+
+<p>&nbsp;</p>
+<h3>Include jQuery</h3>
+<code class="block">
+&lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"&gt;&lt;/script&gt;
+</code>
+
+<p>&nbsp;</p>
+<h3>Include Simple jQuery Slider</h3>
+<code class="block">
+&lt;script type="text/javascript" src="simple-jquery-slider.js"&gt;&lt;/script&gt;
+</code>
+
+<p>&nbsp;</p>
+<h3>Initiate With Javascript</h3>
+<p>Below is an example of how to initialize a slideshow with autoplay, bullets, arrows &amp; a callback to add a <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">FontAwesome</a> class to the arrows.</p>
+<code class="block">
+window.slider = $('#slide');<br />
+window.slider.simpleSlide({<br />
+&nbsp;&nbsp;&nbsp;&nbsp;'auto':true,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;'bullets':true,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;'slideSelector':'img',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;'onInitiate':function(){<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.slider.find('a.arrow.prev').addClass('fa fa-hand-o-left');<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.slider.find('a.arrow.next').addClass('fa fa-hand-o-right');<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+});
+</code>
+
+<p>&nbsp;</p>
+<h3>$.simpleSlide(options)</h3>
+<p><b>Description:</b> Creates a custom slideshow from the specified element.</p>
+<p>&nbsp;</p>
+
+<h4 id="Options">options <a href="#Options" class="fa fa-link"></a></h4>
+<p>A map of options to pass to the $.simpleSlide() method.</p>
+<ul>
+	<li><b>auto</b> (default <code>false</code>)
+		<ul>
+			<li>Type: <a href="http://api.jquery.com/Types/#Boolean" target="_blank">Boolean</a></li>
+			<li>Determines whether to automate the slideshow</li>
+		</ul>
+	</li>
+	<li><b>autoTime</b> (default <code>400</code>)
+		<ul>
+			<li>Type: <a href="http://api.jquery.com/Types/#Number" target="_blank">Number</a></li>
+			<li>The time between slides in an automated slideshow</li>
+		</ul>
+	</li>
+	<li><b>autoInteraction</b> (default <code>false</code>)
+		<ul>
+			<li>Type: <a href="http://api.jquery.com/Types/#Boolean" target="_blank">Boolean</a></li>
+			<li>Determines whether or not to continue automatically playing slideshow after a user interacts (with bullets or arrows).</li>
+		</ul>
+	</li>
+	<li><b>arrows</b> (default <code>true</code>)
+		<ul>
+			<li>Type: <a href="http://api.jquery.com/Types/#Boolean" target="_blank">Boolean</a></li>
+			<li>Determines whether or not to append arrow <code>&lt;a /&gt;</code> elements to the slideshow</li>
+		</ul>
+	</li>
+	<li><b>bullets</b> (default <code>false</code>)
+		<ul>
+			<li>Type: <a href="http://api.jquery.com/Types/#Boolean" target="_blank">Boolean</a></li>
+			<li>Determines whether or not to append bullets to the slideshow</li>
+		</ul>
+	</li>
+	<li><b>transitionTime</b> (default <code>500</code>)
+		<ul>
+			<li>Type: <a href="http://api.jquery.com/Types/#Number" target="_blank">Number</a></li>
+			<li>The amount of time it takes to transition between slides</li>
+		</ul>
+	</li>
+	<li><b>hashChange</b> (default <code>true</code>)
+		<ul>
+			<li>Type: <a href="http://api.jquery.com/Types/#Boolean" target="_blank">Boolean</a></li>
+			<li>Determines if the slideshow should listen to 'hashchange' event. Hash format example: <code>#slide-0</code></li>
+		</ul>
+	</li>
+	<li><b>slideSelector</b> (default <code>'.slide'</code>)
+		<ul>
+			<li>Type: <a href="http://api.jquery.com/Types/#String" target="_blank">String</a></li>
+			<li>Selector string for slide elements</li>
+		</ul>
+	</li>
+</ul>
+
+<p>&nbsp;</p>
+<h4 id="Callbacks">event callbacks <a href="#Callbacks" class="fa fa-link"></a></h4>
+<p>Functions that can be fired when different events in the slideshow occur</p>
+<ul>
+	<li><b>onInitiate()</b>
+		<ul>
+			<li>Type: <a href="http://api.jquery.com/Types/#Function" target="_blank">Function()</a></li>
+			<li>Occurs when the slideshow is initiated</li>
+		</ul>
+	</li>
+	<li><b>onBeforeSlide()</b>
+		<ul>
+			<li>Type: <a href="http://api.jquery.com/Types/#Function" target="_blank">Function()</a></li>
+			<li>Occurs before the slide changes</li>
+		</ul>
+	</li>
+	<li><b>onSlideStart()</b>
+		<ul>
+			<li>Type: <a href="http://api.jquery.com/Types/#Function" target="_blank">Function()</a></li>
+			<li>Occurs when a new slide appears</li>
+		</ul>
+	</li>
+	<li><b>onAfterSlide()</b>
+		<ul>
+			<li>Type: <a href="http://api.jquery.com/Types/#Function" target="_blank">Function()</a></li>
+			<li>Occurs after a new slide finishes animating</li>
+		</ul>
+	</li>
+	<li><b>onBulletClick()</b>
+		<ul>
+			<li>Type: <a href="http://api.jquery.com/Types/#Function" target="_blank">Function()</a></li>
+			<li>Occurs when a bullet is clicked</li>
+		</ul>
+	</li>
+	<li><b>onArrowClick()</b>
+		<ul>
+			<li>Type: <a href="http://api.jquery.com/Types/#Function" target="_blank">Function()</a></li>
+			<li>Occurs when either arrow element is clicked</li>
+		</ul>
+	</li>
+	<li><b>onPreviousClick()</b>
+		<ul>
+			<li>Type: <a href="http://api.jquery.com/Types/#Function" target="_blank">Function()</a></li>
+			<li>Occurs when the 'previous' arrow is clicked</li>
+		</ul>
+	</li>
+	<li><b>onNextClick()</b>
+		<ul>
+			<li>Type: <a href="http://api.jquery.com/Types/#Function" target="_blank">Function()</a></li>
+			<li>Occurs when the 'next' arrow is clicked</li>
+		</ul>
+	</li>
+</ul>
+
+
+
+
+</div>
+</body>
+</html>
